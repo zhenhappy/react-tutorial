@@ -11,11 +11,37 @@
     <div id="app"></div>
     <script type="text/babel">
       var MessageBox = React.createClass({
-        alertMe:function(){
-          alert("你刚才点了我");
-        },
         render:function(){
-          return ( <h1 onClick={this.alertMe}>你好,世界!</h1> )
+        	var submessages = [];
+        	for(var i=0;i<10;i++){
+        		submessages.push(
+        			<Submessage key={i}/>
+        		)
+        	}
+
+          return (
+          	<div>
+          		<h1>你好,世界!</h1>
+          		{submessages}
+          	</div>
+        	)
+        }
+      });
+
+      var Submessage = React.createClass({
+        render:function(){
+          return (
+          	<div>
+          		<h3>写代码很有意思</h3>
+          		<Footer/>
+        		</div>
+          )
+        }
+      });
+
+      var Footer = React.createClass({
+        render:function(){
+          return ( <small>因为我们在用代码创造</small> )
         }
       });
 
