@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello React</title>
+    <script src="../build/react.js"></script>
+    <script src="../build/react-dom.js"></script>
+    <script src="../build/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="hello"></div>
+    <script type="text/babel">
+      var HelloMessage = React.createClass({
+        propTypes: {
+          name: React.PropTypes.string.isRequired
+        },
+        getDefaultProps: function(){
+          return {
+            name: ['默认参数']
+          }
+        },
+        render: function() {
+          return <div>Hello {this.props.name}</div>;
+        }
+      });
+
+      ReactDOM.render(
+        <HelloMessage name="John" />,
+        document.getElementById('hello')
+      );
+    </script>
+  </body>
+</html>
+
+
+
